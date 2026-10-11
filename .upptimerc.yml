@@ -1,31 +1,46 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Raidnight's status: the website and RaidnightBot, checked every five minutes by GitHub Actions.
+# The page: https://grief-team.github.io/raidnight-status/ (RAIDNIGHT_STATUS_URL on the site).
+owner: Grief-Team
+repo: raidnight-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
+  # /api/health answers from the site alone and never wakes the database, so a check every five
+  # minutes costs nothing of Neon's free hours
+  - name: Raidnight website
+    url: https://raidnight.io/api/health
+    slug: website
+    icon: https://raidnight.io/logo-mark.png
+    expectedStatusCodes:
+      - 200
+    __dangerous__body_down_if_text_missing: '"ok":true'
+    maxResponseTime: 10000
+  # 200 while the bot is connected to Discord, 503 with the reason when not. Its address is kept in
+  # the SECRET_SITE secret. The check is also the outside ping that keeps Azure's free plan from
+  # unloading it (docs/bot.md, Keeping it awake).
+  - name: RaidnightBot
     url: $SECRET_SITE
+    slug: discord-bot
+    icon: https://raidnight.io/logo-mark.png
+    expectedStatusCodes:
+      - 200
+    maxResponseTime: 15000
+
+# Each outage opens an issue, assigned here
+assignees:
+  - ivan-trajkov
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  baseUrl: /raidnight-status
+  logoUrl: https://raidnight.io/logo-mark.png
+  favicon: https://raidnight.io/logo-mark.png
+  name: Raidnight status
+  theme: dark
+  introTitle: "Is **Raidnight** up?"
+  introMessage: "The website and RaidnightBot, checked every five minutes. Something wrong that this page does not show? Tell us on [Discord](https://discord.gg/fMYkpa6bKp)."
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: Raidnight
+      href: https://raidnight.io
+    - title: Discord
+      href: https://discord.gg/fMYkpa6bKp
