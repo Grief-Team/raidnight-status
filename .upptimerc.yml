@@ -37,9 +37,8 @@ status-website:
   theme: dark
   introTitle: "Is **Raidnight** up?"
   introMessage: "The website and RaidnightBot, checked every five minutes. Something wrong that this page does not show? Tell us on [Discord](https://discord.gg/fMYkpa6bKp)."
+  # the logo already leads back here, and a third link overflows the bar on a phone
   navbar:
-    - title: Status
-      href: /
     - title: Raidnight
       href: https://raidnight.io
     - title: Discord
