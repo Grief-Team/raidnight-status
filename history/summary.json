@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Raidnight website",
+    "url": "https://raidnight.io/api/health",
+    "icon": "https://raidnight.io/logo-mark.png",
+    "slug": "website",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 1932,
+    "timeDay": 1932,
+    "timeWeek": 1932,
+    "timeMonth": 1932,
+    "timeYear": 1932,
+    "dailyMinutesDown": {}
+  },
+  {
+    "name": "RaidnightBot",
+    "url": "$SECRET_SITE",
+    "icon": "https://raidnight.io/logo-mark.png",
+    "slug": "discord-bot",
+    "status": "up",
+    "uptime": "100.00%",
+    "uptimeDay": "100.00%",
+    "uptimeWeek": "100.00%",
+    "uptimeMonth": "100.00%",
+    "uptimeYear": "100.00%",
+    "time": 434,
+    "timeDay": 434,
+    "timeWeek": 434,
+    "timeMonth": 434,
+    "timeYear": 434,
+    "dailyMinutesDown": {}
+  }
+]
